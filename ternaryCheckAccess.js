@@ -8,12 +8,12 @@ const user = {
   isAdmin: false
 };
 
-function ternaryCheckAccess(user) {
-  user.isAdmin && user.age >= 18 && user.age <= 35
-    ? console.log('Welcome admin!')
-    : user.age >= 18 && user.age <= 35 && user.paid && !user.blocked && !user.badUsername
-      ? console.log('Welcome user!')
-      : console.log('Access denied :(');
+function ternaryCheckAccess({ age, paid, blocked, badUsername, isAdmin }) {
+  const isAgeValid = user.age >= 18 && user.age <= 35;
+
+  return isAgeValid && (isAdmin || paid && !blocked && !badUsername)
+    ? console.log('Welcome!')
+    : console.log('Access denied :(');
 };
 
 ternaryCheckAccess(user);

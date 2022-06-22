@@ -8,14 +8,14 @@ const user = {
   isAdmin: false
 };
 
-function checkAccessIf(user) {
-  if (user.isAdmin && user.age >= 18 && user.age <= 35) {
-    console.log('Welcome admin!');
-  } else if (user.age >= 18 && user.age <= 35 && user.paid && !user.blocked && !user.badUsername) {
-    console.log('Welcome user!');
+function checkAccess({ age, paid, blocked, badUsername, isAdmin }) {
+  const isAgeValid = user.age >= 18 && user.age <= 35;
+
+  if (isAgeValid && (isAdmin || paid && !blocked && !badUsername)) {
+    console.log('Welcome!');
   } else {
     console.log('Access denied :(');
   }
 };
 
-checkAccessIf(user);
+checkAccess(user);
