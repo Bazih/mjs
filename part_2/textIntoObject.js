@@ -1,12 +1,17 @@
 function textIntoObject(str) {
-  const isCapitalized = str === str.toUpperCase();
+  const words = str.split(' ');
 
-  return {
-    word: str,
-    length: str.length,
-    isCapitalized,
-  }
+  return words.map((word) => {
+    const isCapitalized = word === word.toUpperCase();
+
+    return {
+      word: word,
+      length: word.length,
+      isCapitalized,
+    }
+
+  });
 };
 
-console.log(textIntoObject('smth'));
-console.log(textIntoObject('SMTH'));
+console.log(textIntoObject('Hello world'));
+console.log(textIntoObject('HELLO WORLD'));
