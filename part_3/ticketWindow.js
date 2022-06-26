@@ -11,6 +11,8 @@ const TicketWindow = function () {
   this.createEvent = (eventName, costTicket) => {
     this.name = eventName;
     this.cost = 500;
+    this.cashBox = 0;
+    this.soldTickets = [];
   };
 
   this.buyTicket = (eventName) => {

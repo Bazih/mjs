@@ -15,7 +15,7 @@ const Calc = function () {
     return console.log('Operation added succesfully');
   };
 
-  this.substract = (string) => {
+  this.operation = (string) => {
     const [a, operator, b] = string.split(' ');
 
     if (!operationState.hasOwnProperty(operator)) {
@@ -37,11 +37,11 @@ const Calc = function () {
 
 const calculator = new Calc()
 
-calculator.substract('31 + 32') // 63
-calculator.substract('10 * 2') // 20
+calculator.operation('31 + 32') // 63
+calculator.operation('10 * 2') // 20
 calculator.addOperation('/', (a, b) => a / b)
-calculator.substract('10 / 2') // 5
-calculator.substract('10 - 2') // Not found
+calculator.operation('10 / 2') // 5
+calculator.operation('10 - 2') // Not found
 
 calculator.history() /* [{operation: '+', operands: [31,32]}, {operation: '*', 
 operands: [10,2]}, {operation: '/', operands: [10,2]}] */
