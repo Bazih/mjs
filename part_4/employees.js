@@ -6,12 +6,13 @@ const Human = function () {
   this.eat = function() {};
   this.sleep = function() {};
   this.callFriend = function() {};
-  this.organizeMeeting = function () {};
 };
 
 const Employee = function () {
   this.baseSalary = '10000';
   this.salaryCurrency = '$';
+  this.organizeMeeting = function () {};
+  this.retire = function() {};
 };
 
 Employee.prototype = new Human();
@@ -28,7 +29,6 @@ CurrentEmployee.prototype = new Employee();
 
 const ExEmployee = function () {
   this.endDate = '10.10.2000';
-  this.retire = function() {};
 };
 
 ExEmployee.prototype = new Employee();
