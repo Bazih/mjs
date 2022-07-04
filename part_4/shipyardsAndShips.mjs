@@ -1,5 +1,5 @@
-const ShipyardModule = require('./ShipyarModule');
-const ShipModule = require('./ShipModule');
+import { Shipyard } from './Shipyard.mjs';
+import { Ship } from './Ship.mjs';
 
 const MotorShipyard = function () {
   this.type = 'motor';
@@ -16,8 +16,8 @@ const SailingShipyard = function () {
   };
 };
 
-MotorShipyard.prototype = ShipyardModule.Shipyard.shipyard();
-SailingShipyard.prototype = ShipyardModule.Shipyard.shipyard();
+MotorShipyard.prototype = Shipyard.shipyard();
+SailingShipyard.prototype = Shipyard.shipyard();
 
 const MotorShip = function (enginePower, caseMaterial) {
   this.id = this.genId();
@@ -33,8 +33,8 @@ const SailingShip = function (numberMasts, totalSailArea) {
   this.totalSailArea = totalSailArea;
 };
 
-MotorShip.prototype = ShipModule.Ship.ship();
-SailingShip.prototype = ShipModule.Ship.ship();
+MotorShip.prototype = new Ship();
+SailingShip.prototype = new Ship();
 
 const motorShipyard = new MotorShipyard();
 const sailingShipyard = new SailingShipyard();

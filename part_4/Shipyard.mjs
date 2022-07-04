@@ -1,4 +1,4 @@
-module.exports.Shipyard = (function () {
+export const Shipyard = (function () {
   const wrongMessage = "Wrong ship type.";
   let ships = [];
 
