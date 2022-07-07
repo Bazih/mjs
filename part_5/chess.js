@@ -12,9 +12,13 @@ class Figure {
 class Pawn extends Figure {
   constructor(color, name) {
     super(color, name);
-    this.transformTo = 'rook' | 'bishop' | 'knight' | 'queen';
+    
+    /**
+     * Property informing about transformation to other types of shapes:
+     * rook, bishop, knight, queen
+     */
+    this.transformTo = true;
   }
-  
 }
 
 class Rook extends Figure {
@@ -60,14 +64,14 @@ class Board {
       'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'h8',
     ];
     this.allFields = [
-      ['rb', 'knb', 'bb', 'qb', 'kb', 'bb', 'knb', 'rb'],
-      ['pb', 'pb', 'pb', 'pb', 'pb', 'pb', 'pb', 'pb'],
+      ['br', 'bkn', 'bb', 'bq', 'bk', 'bb', 'bkn', 'br'],
+      ['bp', 'bp', 'bp', 'bp', 'bp', 'bp', 'bp', 'bp'],
       ['', '', '', '', '', '', '', ''],
       ['', '', '', '', '', '', '', ''],
       ['', '', '', '', '', '', '', ''],
       ['', '', '', '', '', '', '', ''],
-      ['pw', 'pw', 'pw', 'pw', 'pw', 'pw', 'pw', 'pw'],
-      ['rw', 'knw', 'bw', 'qw', 'kw', 'bw', 'knw', 'rw'],
+      ['wp', 'wp', 'wp', 'wp', 'wp', 'wp', 'wp', 'wp'],
+      ['wr', 'wkn', 'wb', 'wq', 'wk', 'wb', 'wkn', 'wr'],
     ];
   }
 }
