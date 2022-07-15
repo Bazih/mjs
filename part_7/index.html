@@ -36,6 +36,14 @@
       .default-buttons {
         display: flex;
       }
+      .controls {
+        display: flex;
+        background-color: #4d4d4d;
+      }
+      .left {
+        display: flex;
+        flex-direction: column;
+      }
       .numbers {
         display: flex;
         flex-wrap: wrap;
@@ -43,13 +51,14 @@
         background-color: #807c7c;
       }
       .button {
-        width: 20px;
-        height: auto;
-        border: 1px solid rgba(0, 0, 0, 0.8);
-        padding: 10px 24px;
-        font-size: 20px;
-        text-align: center;
+        width: 60px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         flex-grow: 1;
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        font-size: 25px;
       }
       .operators {
         background-color: #e49b06;
@@ -58,7 +67,8 @@
         display: flex;
         flex-wrap: wrap;
         box-sizing: border-box;
-        background-color: #ff7f50;
+        background-color: #c1c1c1;
+        color: #000;
       }
     </style>
   </head>
@@ -67,23 +77,28 @@
       <div class="display"></div>
       <div class="buttons-block">
         <div class="default-buttons">
-          <div class="numbers">
-            <div class="button">1</div>
-            <div class="button">2</div>
-            <div class="button">3</div>
-            <div class="button">4</div>
-            <div class="button">5</div>
-            <div class="button">6</div>
-            <div class="button">7</div>
-            <div class="button">8</div>
-            <div class="button">9</div>
-            <div class="button">0</div>
+          <div class="left">
+            <div class="controls">
+              <div class="button">C</div>
+            </div>
+            <div class="numbers">
+              <div class="button">7</div>
+              <div class="button">8</div>
+              <div class="button">9</div>
+              <div class="button">4</div>
+              <div class="button">5</div>
+              <div class="button">6</div>
+              <div class="button">1</div>
+              <div class="button">2</div>
+              <div class="button">3</div>
+              <div class="button">0</div>
+            </div>
           </div>
           <div class="operators">
-            <div class="button">+</div>
-            <div class="button">-</div>
-            <div class="button">*</div>
             <div class="button">÷</div>
+            <div class="button">*</div>
+            <div class="button">-</div>
+            <div class="button">+</div>
             <div class="button">=</div>
           </div>
         </div>
