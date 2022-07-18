@@ -1,8 +1,6 @@
-import { UI } from './ui.js';
-
 export class Calculator {
-  constructor() {
-    this.ui = new UI();
+  constructor(ui) {
+    this.ui = ui;
     this.currentOperand = null;
     this.previousOperand = null;
     this.currentOperation = null;
@@ -14,13 +12,13 @@ export class Calculator {
       '÷': () => Number(this.previousOperand) / Number(this.currentOperand),
     };
     this.baseInputOperation = {
-      'c|C': (_) => {
+      'clear': (_) => {
         this.currentOperand = null;
         this.previousOperand = null;
         this.currentOperation = null;
         this.ui.setDisplayValue('');
       },
-      '-|+|*|/|÷': (keyValue) => this.twoOperandActions(keyValue),
+      'baseOperations': (keyValue) => this.twoOperandActions(keyValue),
       '=': (_) => {
         this.ui.setDisplayValue(this.performAction());
       },
@@ -31,13 +29,18 @@ export class Calculator {
         this.currentOperand = this.currentOperand.slice(0, this.currentOperand.length - 1);
         this.ui.setDisplayValue(this.currentOperand);
       },
-      '0|1|2|3|4|5|6|7|8|9': (value) => this.numberOperation(value),
-      'default': () => console.log('Incorrect input'),
+      'numbers': (value) => this.numberOperation(value),
     };
   }
   
-  switchCase = (obj = {}, str = '') =>
-    obj[Object.keys(obj).find(ele => ele.toString().split('|').includes(str.toString())) || 'default'];
+  switchCase = (obj = {}, str = '') => {
+    if ('0123456789'.includes(str)) return obj['numbers'];
+    if ('-|+|*|/|÷'.includes(str)) return obj['baseOperations'];
+    if ('c|C'.includes(str)) return obj['clear'];
+    return obj[str]
+      ? obj[str]
+      : () => console.log('Incorrect input');
+  };
 
   twoOperandActions(keyValue) {
     this.previousOperand = this.currentOperand;
