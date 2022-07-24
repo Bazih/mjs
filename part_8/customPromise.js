@@ -1,11 +1,11 @@
-class CustomPromise {
+export default class CustomPromise {
   #queue = [];
   #value = null;
   #reason = null;
 
   constructor(fn) {
     this.state = 'pending';
-    fn(this.#resolve, this.#reject);
+    this.doResolve(fn);
   }
 
   static resolve(value) {
@@ -65,6 +65,29 @@ class CustomPromise {
     }
   }
 
+  doResolve(fn) {
+    let isDone = false;
+    const self = this;
+    try {
+      fn(
+        function(value) {
+          if (isDone) return;
+          isDone = true;
+          self.#resolve(value);
+        },
+        function(reason) {
+          if (isDone) return;
+          isDone = true;
+          self.#reject(reason);
+        }
+      );
+    } catch (ex) {
+      if (isDone) return;
+      isDone = true;
+      self.#reject(ex);
+    }
+  }
+
   #enqueue(task) {
     if (this.state === 'pending') {
       this.#queue.push(task);
@@ -94,20 +117,3 @@ class CustomPromise {
     this.#queue = [];
   }
 }
-
-const customPromise = new CustomPromise((resolve, reject) => {
-  setTimeout(() => {
-    resolve(111);
-  }, 1000);
-  reject('Some error');
-});
-
-customPromise.then((data) => console.log('data: ', data)); // won't work
-customPromise.catch((error) => console.log('error: ', error));
-
-const promise = CustomPromise.resolve(2)
-
-promise
-  .then((data) => data += 5)
-  .then((data) => `Number is ${data}`)
-  .then((data) => console.log(data))
