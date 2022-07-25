@@ -105,11 +105,7 @@ export default class CustomPromise {
   }
 
   #checkFunction(fn) {
-    let result = () => {};
-
-    if (typeof fn === 'function') result = fn;
-
-    return result;
+    return typeof fn === 'function' ? fn : () => {};
   }
 
   #finalize() {
