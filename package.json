@@ -1,0 +1,18 @@
+{
+  "name": "mjs",
+  "version": "1.0.0",
+  "description": "Modern JS",
+  "jest": {
+    "verbose": true
+  },
+  "type": "module",
+  "devDependencies": {
+    "@babel/core": "^7.18.9",
+    "@babel/preset-env": "^7.18.9",
+    "babel-jest": "^28.1.3",
+    "jest": "^28.1.3"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
