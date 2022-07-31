@@ -1,4 +1,4 @@
-const TicketWindow = function () {
+export const TicketWindow = function () {
   this.cashBox = 0;
   this.soldTickets = [];
 
@@ -9,6 +9,9 @@ const TicketWindow = function () {
   };
 
   this.createEvent = (eventName, costTicket) => {
+    if (eventName === undefined || costTicket === undefined) {
+      throw new Error('There should be the name of the event and the cost of one ticket');
+    }
     this.name = eventName;
     this.cost = 500;
     this.cashBox = 0;
@@ -23,24 +26,12 @@ const TicketWindow = function () {
   };
 
   this.returnTicket = (id) => {
-    const findeddId = this.soldTickets.find((x) => x === Number(id));
-    if (findeddId) {
-      this.soldTickets = this.soldTickets.filter((x) => x === Number(id));
+    const findedId = this.soldTickets.find((x) => x === Number(id));
+    if (findedId) {
+      this.soldTickets = this.soldTickets.filter((x) => x !== Number(id));
       this.cashBox -= this.cost;
     }
 
-    console.log('Ticket not found.');
+    return 'Ticket not found.';
   };
 };
-
-const ticketWindow = new TicketWindow();
-
-ticketWindow.createEvent('Concert', 500);
-console.log(ticketWindow);
-const id = ticketWindow.buyTicket('Concert');
-console.log(ticketWindow);
-ticketWindow.buyTicket('Concert');
-console.log(ticketWindow);
-ticketWindow.returnTicket(id);
-console.log('remove ticket');
-console.log(ticketWindow);
