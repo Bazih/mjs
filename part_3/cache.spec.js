@@ -1,6 +1,6 @@
 import { cache } from './cache.js';
 
-describe('cache::', () => {
+describe('cache', () => {
   let calculate;
 
   beforeEach(() => {
