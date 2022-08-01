@@ -1,9 +1,14 @@
 import { filterByLength } from './filterByLength.js';
 
-describe('filterByLength::', () => {
+describe('filterByLength', () => {
 
   const fruits = ['orange', 'apple', 'banana', ''];
   
+  it('should return the result when valid arguments are passed', () => {
+    expect(filterByLength(fruits, 0, 5)).toEqual(['apple', '']);
+    expect(filterByLength(fruits, 6, 6)).toEqual(['orange', 'banana']);
+  });
+
   it('should return an error when there are less than three arguments', () => {
     expect(() => filterByLength()).toThrow('The function takes only three arguments');
     expect(() => filterByLength(fruits)).toThrow('The function takes only three arguments');
@@ -31,10 +36,5 @@ describe('filterByLength::', () => {
     expect(() => filterByLength(fruits, 0, [])).toThrow('The third argument must contain only a positive number or zero');
     expect(() => filterByLength(fruits, 0, { a: 'a' })).toThrow('The third argument must contain only a positive number or zero');
     expect(() => filterByLength(fruits, 0, () => {})).toThrow('The third argument must contain only a positive number or zero');
-  });
-
-  it('when valid arguments are passed, returns the result', () => {
-    expect(filterByLength(fruits, 0, 5)).toEqual(['apple', '']);
-    expect(filterByLength(fruits, 6, 6)).toEqual(['orange', 'banana']);
   });
 });

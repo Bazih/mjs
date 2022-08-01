@@ -26,8 +26,8 @@ export const TicketWindow = function () {
   };
 
   this.returnTicket = (id) => {
-    const findedId = this.soldTickets.find((x) => x === Number(id));
-    if (findedId) {
+    const foundId = this.soldTickets.find((x) => x === Number(id));
+    if (foundId) {
       this.soldTickets = this.soldTickets.filter((x) => x !== Number(id));
       this.cashBox -= this.cost;
     }
