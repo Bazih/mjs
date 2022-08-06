@@ -1,8 +1,9 @@
-import { Pawn } from './chess/pawn';
-import { Rook } from './chess/rook';
-import { Bishop } from './chess/bishop';
-import { Knight } from './chess/knight';
-import { King } from './chess/king';
-import { Queen } from './chess/queen';
-import { Board } from './chess/board';
-import { Game } from './chess/game';
+import { Pawn } from './chess/Pawn';
+import { Rook } from './chess/Rook';
+import { Bishop } from './chess/Bishop';
+import { Knight } from './chess/Knight';
+import { King } from './chess/King';
+import { Queen } from './chess/Queen';
+import { Board } from './chess/Board';
+import { Game } from './chess/Game';
+import coordinates from './chess/COORDINATES';

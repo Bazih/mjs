@@ -1,4 +1,4 @@
-import { Figure } from './figure';
+import { Figure } from './Figure';
 
 export class Pawn extends Figure {
   constructor(color, name) {
