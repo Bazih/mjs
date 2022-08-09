@@ -3,8 +3,19 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const IS_PROD = process.env.NODE_ENV === 'production';
+
 module.exports = {
   entry: './src/index.js',
+  mode: process.env.NODE_ENV || 'development',
+  devServer: {
+    historyApiFallback: true,
+    hot: true,
+    allowedHosts: 'all',
+    compress: true,
+    port: 3000,
+  },
+  devtool: 'source-map',
   output: {
     filename: 'main.[hash].js',
     path: path.resolve(__dirname, 'dist'),
@@ -21,8 +32,14 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        use: ['babel-loader'],
+      },
+      {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: IS_PROD
+          ? [MiniCssExtractPlugin.loader, 'css-loader']
+          : ['css-loader'],
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
@@ -30,8 +47,13 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'scss-loader'],
+        use: IS_PROD
+          ? [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+          : ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
+  },
+  optimization: {
+    minimize: IS_PROD ? true : false,
   },
 };

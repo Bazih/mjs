@@ -4,8 +4,9 @@
   "description": "Modern JS",
   "main": "index.js",
   "scripts": {
+    "start": "webpack serve --node-env development",
     "test": "jest",
-    "webpack": "webpack --config webpack.config.js"
+    "build": "webpack --node-env production --progress"
   },
   "jest": {
     "verbose": true
@@ -14,14 +15,18 @@
     "@babel/core": "^7.18.9",
     "@babel/preset-env": "^7.18.9",
     "babel-jest": "^28.1.3",
+    "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^28.1.3",
     "mini-css-extract-plugin": "^2.6.1",
-    "scss-loader": "^0.0.1",
+    "sass": "^1.54.3",
+    "sass-loader": "^13.0.2",
+    "style-loader": "^3.3.1",
     "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0"
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.3"
   }
 }
