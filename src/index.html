@@ -4,9 +4,189 @@
     <meta charset="UTF-8">
     <meta content="dark light" name="color-scheme">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Part 11</title>
+    <title>Chess</title>
   </head>
   <body>
-    <h2>Part 11</h2>
+    <div class="header">
+      <h3>Chess</h3>
+    </div>
+    <div class="wrapper">
+      <div class="board">
+        <div class="vertical-coord__min">&nbsp;</div>
+        <div class="horizontal-coord">A</div>
+        <div class="horizontal-coord">B</div>
+        <div class="horizontal-coord">C</div>
+        <div class="horizontal-coord">D</div>
+        <div class="horizontal-coord">E</div>
+        <div class="horizontal-coord">F</div>
+        <div class="horizontal-coord">G</div>
+        <div class="horizontal-coord">H</div>
+        <div class="vertical-coord__min">&nbsp;</div>
+
+        <div class="vertical-coord">8</div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="vertical-coord">8</div>
+
+        <div class="vertical-coord">7</div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="vertical-coord">7</div>
+
+        <div class="vertical-coord">6</div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="vertical-coord">6</div>
+
+        <div class="vertical-coord">5</div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="vertical-coord">5</div>
+
+        <div class="vertical-coord">4</div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="vertical-coord">4</div>
+
+        <div class="vertical-coord">3</div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="vertical-coord">3</div>
+
+        <div class="vertical-coord">2</div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="vertical-coord">2</div>
+
+        <div class="vertical-coord">1</div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="piece-square dark-square"></div>
+        <div class="piece-square light-square"></div>
+        <div class="vertical-coord">1</div>
+        
+        <div class="vertical-coord__min">&nbsp;</div>
+        <div class="horizontal-coord">A</div>
+        <div class="horizontal-coord">B</div>
+        <div class="horizontal-coord">C</div>
+        <div class="horizontal-coord">D</div>
+        <div class="horizontal-coord">E</div>
+        <div class="horizontal-coord">F</div>
+        <div class="horizontal-coord">G</div>
+        <div class="horizontal-coord">H</div>
+        <div class="vertical-coord__min">&nbsp;</div>
+      </div>
+      <div class="game-info-wrapper">
+        <div class="new-game">
+          <button id="startGame">Start new game</button>
+        </div>
+        <h4>Info</h4>
+        <div class="info-wrapper">
+          <div class="info-gamer">
+            <div class="head">
+              White
+            </div>
+            <div class="user">
+              <span class="user-name" id="wGamerName">
+                gamer1
+              </span>
+            </div>
+            <div class="defeated-figures">
+            </div>
+          </div>
+          <div class="history-wrapper">
+            <div class="header">
+              Moves ()
+            </div>
+            <div class="scoresheet">
+            </div>
+          </div>
+          <div class="info-gamer">
+            <div class="head">
+              Black
+            </div>
+            <div class="user">
+              <span class="user-name" id="bGamerName">
+                gamer2
+              </span>
+            </div>
+            <div class="defeated-figures">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="modal" class="modal">
+      <div class="modal-wrapper">
+        <div class="modal-header">
+          <div class="header-text"></div>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-content">
+          <input class="player-name">
+          <button id="cancel">Cancel</button>
+          <button id="save">Save</button>
+        </div>
+      </div>
+    </div>
+    <div id="modalNewFigures" class="modal">
+      <div class="modal-wrapper">
+        <div class="modal-header">
+          <div class="header-text">Please choose a new figure</div>
+        </div>
+        <div class="modal-content">
+          <button id="newFigure" data-name="Rook">Rook</button>
+          <button id="newFigure" data-name="Bishop">Bishop</button>
+          <button id="newFigure" data-name="Knight">Knight</button>
+          <button id="newFigure" data-name="Queen">Queen</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
