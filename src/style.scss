@@ -1,0 +1,208 @@
+@use './modal.scss';
+@use './figure.scss';
+
+$coordsBG: #3b3c55; // #a3a4ca;
+$white: #ffffff;
+$lightSquare: #e7dfdf;
+$darkSquare: #ad9696;
+$green: #1f9c1f;
+$border: #d5d5d5;
+$move: #224a9366; // #22935b3d;
+
+body {
+  padding: 0 0;
+  margin: 0 0;
+}
+
+.header {
+  display: flex;
+  height: 22px;;
+
+  h3 {
+    margin: 0 auto;
+  }
+}
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.board {
+  width: 440px;
+  height: 415px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.piece-square {
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+}
+
+.light-square {
+  background: $lightSquare;
+}
+.dark-square {
+  background: $darkSquare;
+}
+.vertical-coord {
+  width: 20px;
+  height: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  background-color: $coordsBG;
+  color: $white;
+
+  &__min {
+    width: 20px;
+    height: 15px;
+    background-color: $coordsBG;
+    color: $white;
+  }
+}
+.horizontal-coord {
+  width: 50px;
+  height: 15px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $coordsBG;
+  color: $white;
+}
+.game-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.new-game {
+  button {
+    border-radius: 5px;
+    background-color: $green;
+  }
+}
+
+.info-wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.info-gamer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  border: 1px solid $border;
+  flex: 1;
+
+  .head {
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+  }
+}
+.history-wrapper {
+  flex: 2;
+  border: 1px solid $border;
+
+  .header {
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border-bottom: 1px solid $border;
+  }
+  .scoresheet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    overflow: scroll;
+  }
+}
+
+.moves-figure {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: $move;
+}
+
+@media (min-width: 660px) {
+  .wrapper {
+    flex-direction: row;
+  }
+  .game-info-wrapper {
+    width: calc(100% - 440px);
+  }
+}
+
+@media (min-width: 900px) {
+  .wrapper {
+    flex-direction: row;
+  }
+  .board {
+    width: 600px;
+    height: 515px;
+  }
+  .piece-square {
+    width: 70px;
+    height: 70px;
+  }
+  .vertical-coord {
+    height: 70px;
+  }
+  .horizontal-coord {
+    width: 70px;
+  }
+  .game-info-wrapper {
+    width: calc(100% - 600px);
+  }
+  .moves-figure {
+    width: 70px;
+    height: 70px;
+  }
+}
+@media (min-width: 1200px) {
+  .wrapper {
+    flex-direction: row;
+  }
+  .board {
+    width: 760px;
+    height: 735px;
+  }
+  .piece-square {
+    width: 90px;
+    height: 90px;
+  }
+  .vertical-coord {
+    height: 90px;
+  }
+  .horizontal-coord {
+    width: 90px;
+  }
+  .game-info-wrapper {
+    width: calc(100% - 760px);
+  }
+  .moves-figure {
+    width: 90px;
+    height: 90px;
+  }
+}
